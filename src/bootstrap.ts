@@ -1,0 +1,22 @@
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { NgModule, Component } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
+import { BrowserModule } from '@angular/platform-browser';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
+import { AppComponent } from './components/App/app.component'
+
+@NgModule({
+    bootstrap: [AppComponent],
+    declarations: [AppComponent],
+    imports: [
+        BrowserModule,
+        HttpModule,
+        ReactiveFormsModule,
+        NgbModule.forRoot()
+    ]
+})
+export class MainModule { }
+
+platformBrowserDynamic().bootstrapModule(MainModule);
