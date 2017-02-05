@@ -4,8 +4,9 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { HeaderModule } from './Components/Header';
 
-import { AppComponent } from './components/App/app.component'
+import { AppComponent } from './components/App/app.component';
 
 @NgModule({
     bootstrap: [AppComponent],
@@ -14,7 +15,8 @@ import { AppComponent } from './components/App/app.component'
         BrowserModule,
         HttpModule,
         ReactiveFormsModule,
-        NgbModule.forRoot()
+        NgbModule.forRoot(),
+        HeaderModule
     ]
 })
 export class MainModule { }
