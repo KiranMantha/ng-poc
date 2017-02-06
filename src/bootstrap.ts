@@ -5,6 +5,7 @@ import { HttpModule } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HeaderModule } from './Components/Header';
+import { ComponentsModule } from './Components/Controls';
 
 import { AppComponent } from './components/App/app.component';
 
@@ -16,7 +17,8 @@ import { AppComponent } from './components/App/app.component';
         HttpModule,
         ReactiveFormsModule,
         NgbModule.forRoot(),
-        HeaderModule
+        HeaderModule,
+        ComponentsModule
     ]
 })
 export class MainModule { }
