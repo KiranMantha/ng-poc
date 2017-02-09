@@ -11,11 +11,10 @@ import { ValueAccessorBase } from './Generics/ValueAccessorBase';
     selector: 'check-box',
     template: `
         <div class='checkbox'>
-            <input type="checkbox"
+            <label [attr.for]="identifier"><input type="checkbox"
             [(ngModel)]="value" 
             [attr.id]="identifier" 
-            [attr.name]="identifier" />
-            <label [attr.for]="identifier">{{label}}</label>
+            [attr.name]="identifier" />{{label}}</label>
         </div>
     `, providers: [{
         provide: NG_VALUE_ACCESSOR,
