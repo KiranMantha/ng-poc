@@ -2,8 +2,9 @@
   "name": "ng-poc",
   "version": "1.0.0",
   "scripts": {
-    "start": "webpack --config webpack.config.js && webpack-dev-server --config webpack.server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "webpack-dev-server --config webpack.server.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --config webpack.config.js"
   },
   "author": "Kiran Mantha",
   "license": "ISC",
