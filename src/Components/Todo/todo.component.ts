@@ -6,4 +6,8 @@ import {Component} from '@angular/core';
 })
 export class TodoComponent {
     public test: boolean = false;
+    public test1(evt: any):void {
+        console.log(evt)
+        alert('hi');
+    }
 }

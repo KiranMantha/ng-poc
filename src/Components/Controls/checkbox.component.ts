@@ -1,4 +1,4 @@
-import { Component, Input, HostListener, Host, Optional, Inject } from '@angular/core';
+import { Component, Input, HostListener, Host, Optional, Inject, Output, EventEmitter } from '@angular/core';
 import {
     NgModel,
     NG_VALUE_ACCESSOR,
@@ -11,10 +11,13 @@ import { ValueAccessorBase } from './Generics/ValueAccessorBase';
     selector: 'check-box',
     template: `
         <div class='checkbox'>
-            <label [attr.for]="identifier"><input type="checkbox"
+            <label [attr.for]="identifier">
+            <input type="checkbox"
             [(ngModel)]="value" 
             [attr.id]="identifier" 
-            [attr.name]="identifier" />{{label}}</label>
+            [attr.name]="identifier" 
+            (change)="_onChange($event)"/>
+            {{label}}</label>
         </div>
     `, providers: [{
         provide: NG_VALUE_ACCESSOR,
@@ -30,7 +33,11 @@ export class CheckboxComponent extends ValueAccessorBase<boolean> {
         super(); // ValueAccessor base
     }
     @Input() public label: string;
+    @Output() onChange = new EventEmitter();
     public identifier = `checkbox-${identifier++}`;
+    private _onChange(evt: any): void {
+        this.onChange.next({event: evt});
+    }
 }  
 let identifier = 0;
 

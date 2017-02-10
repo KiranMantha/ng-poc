@@ -1,4 +1,4 @@
-import { Component, Input, Optional, Inject, ViewChild } from '@angular/core';
+import { Component, Input, Optional, Inject, ViewChild, Output, EventEmitter } from '@angular/core';
 import {
     NgModel,
     NG_VALUE_ACCESSOR,
@@ -15,7 +15,10 @@ import { ValueAccessorBase } from './Generics/ValueAccessorBase';
       <input
         type="text"
         [(ngModel)]="value"
-        [ngClass]="{invalid: (invalid | async)}" [attr.id]="identifier" [attr.name]="identifier" />
+        [ngClass]="{invalid: (invalid | async)}" 
+        [attr.id]="identifier" 
+        [attr.name]="identifier" 
+        (blur)="_onChange($event)"/>
       <validation-messages *ngIf="invalid | async" [messages]="failures | async">
       </validation-messages>
     </div>
@@ -32,6 +35,10 @@ export class TextBoxComponent extends ValueAccessorBase<string> {
         super(); // ValueAccessor base
     }    
     @Input() public label: string;
+    @Output() onChange = new EventEmitter();
     public identifier = `textbox-${identifier++}`;
+    private _onChange(evt: any): void {
+        this.onChange.next({event: evt});
+    }
 }  
 let identifier = 0;

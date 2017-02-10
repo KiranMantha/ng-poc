@@ -3,7 +3,9 @@ import {
     Optional,
     Inject,
     Input,
-    ViewChild,
+    ViewChild, 
+    Output, 
+    EventEmitter
 } from '@angular/core';
 
 import {
@@ -23,7 +25,9 @@ import { ElementBase } from './Generics';
       <select
           [(ngModel)]="value"
           [ngClass]="{invalid: (invalid | async)}"
-          [attr.id]="identifier" [attr.name]="identifier">
+          [attr.id]="identifier" 
+          [attr.name]="identifier"
+          (change)="_onChange($event)">
         <option value="" disabled selected *ngIf="placeholder">{{placeholder}}</option>
         <ng-content></ng-content>
       </select>
@@ -41,6 +45,7 @@ import { ElementBase } from './Generics';
 export class DropdownComponent extends ElementBase<string> {
     @Input() public label: string;
     @Input() public placeholder: string;
+    @Output() onChange = new EventEmitter();
 
     @ViewChild(NgModel) model: NgModel;
 
@@ -51,6 +56,9 @@ export class DropdownComponent extends ElementBase<string> {
         @Optional() @Inject(NG_ASYNC_VALIDATORS) asyncValidators: Array<any>,
     ) {
         super(validators, asyncValidators);
+    }
+    private _onChange(evt: any): void {
+        this.onChange.next({event: evt});
     }
 }
 
