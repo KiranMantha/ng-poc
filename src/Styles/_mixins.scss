@@ -1,0 +1,32 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,700);
+$lightGrey: #f8f8f8;
+$mediumGrey: #e8e8e8;
+$blue: #337ab7;
+$font-family: 'Roboto',sans-serif;
+
+@mixin border($border-width, $color){
+    border: $border-width solid $color;
+}
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+      -ms-border-radius: $radius;
+          border-radius: $radius;
+}
+
+@mixin display-flex($justify-content){
+    display: -webkit-flex;
+    display: flex;
+    justify-content: $justify-content;
+    -webkit-justify-content: $justify-content;
+}
+
+@mixin fontawesome() {
+    font: normal normal normal 14px/1 FontAwesome;
+    -webkit-font-smoothing: antialiased;
+}
+
+@mixin icon($name) {
+
+}

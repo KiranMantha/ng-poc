@@ -1,0 +1,30 @@
+input[type=checkbox],
+input[type=radio] {
+    display: none;
+}
+
+.checkbox {
+    input[type=checkbox]+label,
+    input[type=radio]+label,
+    input[type=checkbox]:checked+label,
+    input[type=radio]:checked+label {
+        &:before {        
+            @include fontawesome();
+            letter-spacing: 5px;
+            display: inline-block;
+            color: $blue;
+        }
+    }
+    input[type=checkbox]+label,
+    input[type=radio]+label {
+        &:before {
+            content: "\f096";
+        }
+    }
+    input[type=checkbox]:checked+label,
+    input[type=radio]:checked+label {
+        &:before {
+            content: "\f14a";
+        }
+    }
+}

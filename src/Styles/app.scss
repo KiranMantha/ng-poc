@@ -1,4 +1,11 @@
+@import "mixins";
+body {
+    margin: 0;
+    padding: 0;
+    font-family: $font-family;
+    font-weight: normal;
+}
 $fa-font-path: "/fonts";
 @import "~font-awesome/scss/font-awesome";
-@import "~bootstrap-sass/assets/stylesheets/bootstrap-sprockets";
-@import "~bootstrap-sass/assets/stylesheets/bootstrap";
+@import "controls";
+@import "header";

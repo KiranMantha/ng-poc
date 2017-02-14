@@ -1,0 +1,6 @@
+.header {
+    padding: 10px;
+    @include display-flex(flex-start);
+    background-color: $lightGrey;
+    @include border(1px, #e8e8e8);
+}
